@@ -1,0 +1,24 @@
+specVersion: 0.0.3
+description: LWW NFT indexing
+schema:
+  file: ./schema.graphql
+dataSources:
+  - name: Nft
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: Nft
+      startBlock: 1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/nft.ts
+      entities:
+        - Nft
+      abis:
+        - name: Nft
+          file: ./abis/Nft.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
