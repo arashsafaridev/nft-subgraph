@@ -1,19 +1,27 @@
-type Nft @entity {
+type Transaction @entity {
   id: ID!
-  address: Bytes!
-  tokenId: BigInt!
-  owner: Bytes!
+  blockNumber: BigInt!
+  tokenId:BigInt!
+  hash: String!
+  txFrom: Bytes!
+  txTo: Bytes
+  apFrom: Bytes
+  apTo: Bytes
+  ownerOf: Bytes
+  value: BigInt
   name: String
   symbol: String
   uri: String
   image: String
   description: String
+  gasLimit: BigInt
+  gasPrice: BigInt
+  timestamp: BigInt
+  user:User!
 }
-
-type Collection @entity {
+type User @entity {
   id: ID!
-  address: Bytes!
-  owner: Bytes!
-  name: String
-  symbol: String
+  balanceOf: BigInt!
+  totalTransactions: BigInt!
+  transactions: [Transaction!] @derivedFrom(field: "user")
 }

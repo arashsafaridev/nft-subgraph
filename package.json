@@ -1,19 +1,18 @@
 {
-  "name": "nft-subgraph",
-  "version": "0.1.0",
+  "name": "mid-transacrions",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
-    "create": "graph create FrederikBolding/nft-subgraph --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create FrederikBolding/nft-subgraph --node http://127.0.0.1:8020",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy FrederikBolding/nft-subgraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy FrederikBolding/nft-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
-  },
-  "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.23.2",
-    "@graphprotocol/graph-ts": "^0.23.1"
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ arashsafaridev/nft-transacrions",
+    "create-local": "graph create --node http://localhost:8020/ arashsafaridev/nft-transacrions",
+    "remove-local": "graph remove --node http://localhost:8020/ arashsafaridev/nft-transacrions",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 arashsafaridev/nft-transacrions"
   },
   "dependencies": {
-    "as-base64": "^0.2.0"
+    "@graphprotocol/graph-cli": "0.25.1",
+    "@graphprotocol/graph-ts": "0.24.1",
+	  "as-base64": "^0.2.0"
   }
 }
